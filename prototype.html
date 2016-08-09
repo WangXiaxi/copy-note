@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//forEach	
+	/*function forEach(arr,callback){
+		for(var i = 0 ,len = arr.length;i<len;i++){
+			callback(arr[i],i,arr);
+		}
+	}
+	var arr = [1,2,4,34];
+	forEach(arr,function(list,index,arr){
+		console.log(list);
+	})*/
+
+//map
+	/*function map(arr,callback){
+		var arrk = [];
+		for(var i = 0 ,len = arr.length;i<len;i++){
+		var a = callback(arr[i],i,arr);
+			arrk[i] = a;
+		}
+		return arrk;
+
+	}
+	var arr2 = [1,23,4,5];
+	var x = map(arr2,function(list,index,arr){
+		console.log(list,index,arr);
+		arr[1] = 2;
+		return "<a"+arr+"></a>";
+	});
+	console.log(x);*/
+
+//filter
+	Array.prototype.vlu = function(){
+		var a = [];
+		for(var i=0;i < this.length;i++){
+			a.push(this[i]);
+		}
+	};
+	Array.prototype._filter=function(callback){
+		var arrsl = [];
+		for(var i = 0,len = this.length;i<len;i++){
+			var a = callback(this[i],i,this.vlu());
+			if (a){
+				arrsl.push(this[i]);
+			}
+		}
+			return arrsl;
+	}
+	var arr2 = [1,2,3,4,5,6,7,8];
+	var y = arr2._filter(function(list,ind,arr){
+		return ind < 5;
+	});
+	console.log(y);
+</script>
+</body>
+</html>
